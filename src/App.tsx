@@ -98,7 +98,7 @@ function App() {
           <img src="/src/asset/images/ape3.a594fade.png" className='h-[60px] w-[60px]'/>
           </div> 
           <div className='text-white flex gap-2'>
-            {isConnected && <img src="/src/asset/images/opbnb.png" className='w-[40px] h-[40px]'></img>}
+            {isConnected && <img src="../asset/images/opbnb.png" className='w-[40px] h-[40px]'></img>}
           <div className='items-center bg-footer rounded-2xl font-bold cursor-pointer py-2 px-3 text-lg text-ellipsis overflow-hidden w-[100px]'>
             {isConnected ? (
                 <button
