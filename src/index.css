@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+	margin:0px;
+}
+
+.header {
+	background: radial-gradient(circle, #47423c 0, #120e0c 68%);
+  }
+  
+  .main {
+	background: #120e0c;
+	background: radial-gradient(circle, #47423c 0, #120e0c 68%);
+	background-size: cover;
+	color: #080606;
+	font-family: "Montserrat", sans-serif;
+  }
+  
+  .top {
+	backdrop-filter: blur(16px) saturate(180%);
+	-webkit-backdrop-filter: blur(16px) saturate(180%);
+	background-color: #f05123;
+	border-radius: 12px;
+	box-shadow: 0 8px 32px 0 #5b5a5d;
+	border: 1px solid rgba(219, 202, 202, .125);
+  }
+  
+  .bg-footer {
+	background-color: #f05123;
+  }
+  
+  .max-w-600 {
+	max-width: 520px;
+  }
+  
+  .divider {
+	background: #060644;
+  }
+  
+  .bg-34344A {
+	background-color: #34344A;
+  }
+  
+  .border-41444F {
+	border: 1px solid #41444F;
+  }
+  
+  .text-B2B9D2 {
+	color: #B2B9D2;
+  }
+  
+  .bg-191B1F {
+	background-color: #191B1F;
+  }
+  
+  .coin {
+	color: #000;
+	padding: 5px;
+	border-radius: 10px;
+	background: linear-gradient(160deg, #f05123 0%, #f05123 100%);
+  }
+  
+  .but {
+	/* border: 1px solid; */
+	background: linear-gradient(160deg, #e7860d 0%, #b59e31 100%);
+	border-radius: 10px;
+	box-shadow: 10px 10px #34344a;
+	padding: 15px;
+	color: #000;
+  }
+  
+  .coin1 {
+	width: 50px;
+	height: 35px;
+	background-color: #247ba0;
+	padding: 5px;
+	margin-bottom: 2px;
+	color: #000;
+	border-radius: 10px;
+	background: linear-gradient(160deg, #f05123 0%, #f05123 100%);
+  }
+  
+  
+  .form-control {
+	display: block;
+	width: 100%;
+	padding: .375rem .75rem;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #212529;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 1px solid #ced4da;
+	-webkit-appearance: none;
+	appearance: none;
+	border-radius: .25rem;
+	transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  }
