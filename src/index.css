@@ -72,7 +72,7 @@ body {
   }
   
   .coin1 {
-	width: 50px;
+	width: 100px;
 	height: 35px;
 	background-color: #247ba0;
 	padding: 5px;
@@ -80,6 +80,8 @@ body {
 	color: #000;
 	border-radius: 10px;
 	background: linear-gradient(160deg, #f05123 0%, #f05123 100%);
+	overflow: hidden;
+  	text-overflow: ellipsis;
   }
   
   

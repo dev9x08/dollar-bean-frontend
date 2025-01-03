@@ -109,10 +109,29 @@ function App() {
   }
 
 //   let bakedAt = userData?.bakedAt;
-const parseUserData = (data: any) => {
+const totalDeposit = (data: any) => {
 	if (!data) return "0.00";
 	return (Number(data.totalDeposit) / decimal).toFixed(2);
+};
+
+const referrals = (data: any) => {
+	if (!data || data.referrals.length == 0) return "0x00000000000000000";
+	return data.referrals[0];
+}
+
+
+const formatTime = (seconds: any) => {
+	if (!seconds) return "d hr min";
+	const totalSeconds = typeof seconds === "bigint" ? Number(seconds) : seconds;
+	const days = Math.floor(totalSeconds / (24 * 3600));
+	const remainingAfterDays = totalSeconds % (24 * 3600);
+	const hours = Math.floor(remainingAfterDays / 3600);
+	const remainingAfterHours = remainingAfterDays % 3600;
+	const minutes = Math.floor(remainingAfterHours / 60);
+	return `${days} d ${hours} hr ${minutes} min`;
   };
+
+
 
   return (
     <>
@@ -154,7 +173,7 @@ const parseUserData = (data: any) => {
 			  </div>
 			  <div className="flex flex-row justify-between text-md md:text-lg my-6">
 				<p>Your USDT invested</p>
-				<p>{parseUserData(userData)} USDT</p>
+				<p>{totalDeposit(userData)} USDT</p>
 			  </div>
 			  <div className="flex flex-col">
 				<p className="text-left">Your Beans</p>
@@ -191,7 +210,7 @@ const parseUserData = (data: any) => {
 				</div>
 				<div className="flex justify-between my-12 text-lg md:text-lg">
 				  <span>Time passed since last eat</span>
-				  <span>{Number(passedTime)}d hr min</span>
+				  <span>{formatTime(passedTime)}</span>
 				</div>
 			  </div>
 			</div>
@@ -226,7 +245,7 @@ const parseUserData = (data: any) => {
 			<div className=" p-8 w-full mb-24">
 			  <div className="mx-2 mt-8"><input type="text" className="form-control " value={address? address: "undefined"} disabled/></div>
 			  <div className="bg-34344A my-3 rounded-2xl p-6 text-gray-100  border border-34344A hover:border-41444F  flex justify-between items-center my-4 mx-2">
-				Referrals<span className="coin1"></span>
+				Referrals<span className="coin1">{referrals(userData)}</span>
 			  </div>
 			  <p className="text-lg md:text-xl">
 				Earn 5% of the downline USDT deposit.
