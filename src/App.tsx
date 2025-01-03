@@ -146,7 +146,7 @@ console.log
 			  <h4 className="text-xl md:text-2xl font-bold p-4">OP Dollar Beans is a USDT static rewards pool returning up to 6.5% daily</h4>
 			  <div className="flex flex-row justify-between text-md md:text-lg ">
 				<p>Contract Balance</p>
-				<p>{contractBalance? Number(contractBalance)/decimal: "0.00"} USDT</p>
+				<p>{contractBalance? (Number(contractBalance) / decimal).toFixed(3): "0.00"} USDT</p>
 			  </div>
 			  <div className="flex flex-row justify-between text-md md:text-lg my-6">
 				<p>Your USDT invested</p>
