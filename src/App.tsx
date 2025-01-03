@@ -2,7 +2,7 @@ import {useState} from 'react';
 import { useAccount, useConnect, useDisconnect, useWriteContract, useReadContract} from 'wagmi'
 import ContractABI from "./abi/contract.json";
 import TokenABI from "./abi/erc20.json";
-import { ethers } from 'ethers';
+import { ethers} from 'ethers';
 
 const CONTRACT_ADDRESS  = "0x604bd488ba1190f6Cd447AB681881ce7092412D3";
 const TOKEN_ADDRESS = "0x8d008B313C1d6C7fE2982F62d32Da7507cF43551";
@@ -107,8 +107,12 @@ function App() {
 	});
 	console.log(eatTx,"*************");
   }
-console.log
+
 //   let bakedAt = userData?.bakedAt;
+const parseUserData = (data: any) => {
+	if (!data) return "0.00";
+	return (Number(data.totalDeposit) / decimal).toFixed(2);
+  };
 
   return (
     <>
@@ -150,19 +154,18 @@ console.log
 			  </div>
 			  <div className="flex flex-row justify-between text-md md:text-lg my-6">
 				<p>Your USDT invested</p>
-				{/* <p>{userData? Number(userData?.totalDeposit)/decimal: 0} USDT</p> */}
-				{/* <p>{userData? Number(userData?.totalDeposit)/decimal: 0} USDT</p> */}
+				<p>{parseUserData(userData)} USDT</p>
 			  </div>
 			  <div className="flex flex-col">
 				<p className="text-left">Your Beans</p>
 				<div className="bg-34344A rounded-2xl p-4 md:p-6 text-2xl border border-gray-900 hover:border-41444F  flex justify-between mt-6">
 				  <input
-            type = "text" 
+            			type = "text" 
 				  		id="bnbval"
 						className="bg-transparent placeholder:text-B2B9D2 outline-none  w-full text-lg md:text-2xl" 
 						placeholder="0.0" pattern="^[0-9]*[.,]?[0-9]*$" 
 						value={amount}
-            onChange={(e) => setAmount(e.target.value)}
+            			onChange={(e) => setAmount(e.target.value)}
 					/>
 				  <span className="coin text-lg md:text-2xl">USDT</span>
 				</div>
