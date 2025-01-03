@@ -95,7 +95,7 @@ function App() {
       <div className="font-bold">
         <nav className="flex items-center justify-between flex-wrap p-6 header px-8">
           <div className="flex items-center flex-shrink-0 text-white mr-6">
-          <img src="/ape3.a594fade.png" className='h-[60px] w-[60px]'/>
+          <img src="/src/asset/images/ape3.a594fade.png" className='h-[60px] w-[60px]'/>
           </div> 
           <div className='text-white flex gap-2'>
             {isConnected && <img src="/src/asset/images/opbnb.png" className='w-[40px] h-[40px]'></img>}
