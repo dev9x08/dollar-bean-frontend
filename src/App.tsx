@@ -95,10 +95,10 @@ function App() {
       <div className="font-bold">
         <nav className="flex items-center justify-between flex-wrap p-6 header px-8">
           <div className="flex items-center flex-shrink-0 text-white mr-6">
-          <img src="/src/asset/images/ape3.a594fade.png" className='h-[60px] w-[60px]'/>
+          <img src="/asset/images/ape3.a594fade.png" className='h-[60px] w-[60px]'/>
           </div> 
           <div className='text-white flex gap-2'>
-            {isConnected && <img src="/src/asset/images/opbnb.png" className='w-[40px] h-[40px]'></img>}
+            {isConnected && <img src="/asset/images/opbnb.png" className='w-[40px] h-[40px]'></img>}
           <div className='items-center bg-footer rounded-2xl font-bold cursor-pointer py-2 px-3 text-lg text-ellipsis overflow-hidden w-[100px]'>
             {isConnected ? (
                 <button
@@ -122,7 +122,7 @@ function App() {
 		<div className="main w-full px-4 py-4 sm:px-0 sm:py-12 flex justify-center items-center flex-col gap-24">
 		  <div className="max-w-600 flex flex-col justify-center items-center p-2 md:p-4 text-center top">
 			<div className="m-2 md:m-6">
-			  <img src="/src/asset/images/1.png" alt="mid" height="70" width="350" className="rounded-md rounded-xl mx-auto d-block mb-4" />
+			  <img src="/asset/images/1.png" alt="mid" height="70" width="350" className="rounded-md rounded-xl mx-auto d-block mb-4" />
 			  <h4 className="text-xl md:text-2xl font-bold p-4">OP Dollar Beans is a USDT static rewards pool returning up to 6.5% daily</h4>
 			  <div className="flex flex-row justify-between text-md md:text-lg ">
 				<p>Contract Balance</p>
@@ -215,16 +215,16 @@ function App() {
 		<div className="w-full flex justify-center bg-footer p-2">
 			<div className="flex flex-row justify-center rounded-full gap-4 py-2 px-4 bg-191B1F">
 				<a href="/" className="rounded">
-				  <img src = "/src/asset/images/tg.png" width={40} height={40} className='rounded-xl'/>
+				  <img src = "/asset/images/tg.png" width={40} height={40} className='rounded-xl'/>
 				</a>
 				<a href="https://testnet.bscscan.com/address/0x604bd488ba1190f6Cd447AB681881ce7092412D3" className="rounded">
-				  <img src = "/src/asset/images/etherscan.png" width={40} height={40}  />
+				  <img src = "/asset/images/etherscan.png" width={40} height={40}  />
 				</a>
 				<a href="/" className="rounded">
-				  <img src = "/src/asset/images/pdf.png" width={40} height={40} />
+				  <img src = "/asset/images/pdf.png" width={40} height={40} />
 				</a>
 				<a href="/" className="rounded">
-				  <img src = "/src/asset/images/home.png" width={40} height={40} className='rounded-xl'/>
+				  <img src = "/asset/images/home.png" width={40} height={40} className='rounded-xl'/>
 				</a>
 			</div>
 		</div>
