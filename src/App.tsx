@@ -44,7 +44,16 @@ function App() {
 	functionName: 'user', 
 	args: [address]
   });
-  console.log(userData)
+  console.log(userData,"userdata")
+
+  const {data: passedTime} =  useReadContract({
+	address: CONTRACT_ADDRESS, 
+	abi: ContractABI,         
+	functionName: 'secondsSinceLastEat', 
+	args: [address]
+  });
+
+
 
   const handleBuy = async () => {
 	if (!isConnected) {
@@ -79,15 +88,26 @@ function App() {
 
 
   const handleBake = async () => {
-	const buyTx = await writeContract({
+	const rebakeTx = await writeContract({
 		address: CONTRACT_ADDRESS,
 		abi: ContractABI,
 		functionName: "bake",
 		args: [],
 	});
-	console.log(buyTx,"*************");
+	console.log(rebakeTx,"*************");
   }
 
+
+  const handleEat = async () => {
+	const eatTx = await writeContract({
+		address: CONTRACT_ADDRESS,
+		abi: ContractABI,
+		functionName: "eat",
+		args: [],
+	});
+	console.log(eatTx,"*************");
+  }
+console.log
 //   let bakedAt = userData?.bakedAt;
 
   return (
@@ -130,7 +150,7 @@ function App() {
 			  </div>
 			  <div className="flex flex-row justify-between text-md md:text-lg my-6">
 				<p>Your USDT invested</p>
-				{/* <p>{userData? Number(userData?.totalDeposit)/decimal: 0} USDT</p>/ */}
+				{/* <p>{userData? Number(userData?.totalDeposit)/decimal: 0} USDT</p> */}
 				{/* <p>{userData? Number(userData?.totalDeposit)/decimal: 0} USDT</p> */}
 			  </div>
 			  <div className="flex flex-col">
@@ -163,12 +183,12 @@ function App() {
 					<button className="but px-6 font-bold hover:text-gray-700" onClick={handleBake}>ReBake Beans</button>
 				  </div>
 				  <div className="w-full sm:w-1/2">
-					<button className="but font-bold hover:text-gray-700">Eat Beans</button>
+					<button className="but font-bold hover:text-gray-700" onClick={handleEat}>Eat Beans</button>
 				  </div>
 				</div>
 				<div className="flex justify-between my-12 text-lg md:text-lg">
 				  <span>Time passed since last eat</span>
-				  <span>d hr min</span>
+				  <span>{Number(passedTime)}d hr min</span>
 				</div>
 			  </div>
 			</div>
