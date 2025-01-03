@@ -1,10 +1,8 @@
-import React, {useEffect, useState} from 'react';
-import { useAccount, useConnect, useDisconnect, useSendTransaction, useWriteContract, useReadContract, useBlockNumber} from 'wagmi'
+import {useState} from 'react';
+import { useAccount, useConnect, useDisconnect, useWriteContract, useReadContract} from 'wagmi'
 import ContractABI from "./abi/contract.json";
 import TokenABI from "./abi/erc20.json";
-// import { parseEther } from 'viem'
 import { ethers } from 'ethers';
-// import { getBalance } from '@wagmi/core'
 
 const CONTRACT_ADDRESS  = "0x604bd488ba1190f6Cd447AB681881ce7092412D3";
 const TOKEN_ADDRESS = "0x8d008B313C1d6C7fE2982F62d32Da7507cF43551";
@@ -13,9 +11,9 @@ const decimal =  1000000000000000000;
 function App() {
   const [amount, setAmount] = useState("");
   const {isConnected, address} = useAccount()
-  const { connectors, connect, status, error } = useConnect()
+  const { connectors, connect} = useConnect()
   const { disconnect } = useDisconnect();
-  const { data: hash, writeContract } = useWriteContract()
+  const {writeContract } = useWriteContract()
   const metaMaskConnector = connectors.find((connector) => connector.id === 'injected');
 
   const allowance =  useReadContract({
@@ -24,6 +22,7 @@ function App() {
 	functionName: "allowance",
 	args: [address, CONTRACT_ADDRESS],
   });
+  console.log(allowance)
 
   const {data: contractBalance} = useReadContract({
 	address: TOKEN_ADDRESS, 
@@ -45,6 +44,7 @@ function App() {
 	functionName: 'user', 
 	args: [address]
   });
+  console.log(userData)
 
   const handleBuy = async () => {
 	if (!isConnected) {
@@ -70,6 +70,7 @@ function App() {
 			functionName: "buyBeans",
 			args: [address, depositAmount],
 		});
+		console.log(approveTx, buyTx)
 	} catch (error) {
 	  console.error("Error during transaction:", error);
 	  alert("Transaction failed. Check the console for details.");
@@ -129,7 +130,8 @@ function App() {
 			  </div>
 			  <div className="flex flex-row justify-between text-md md:text-lg my-6">
 				<p>Your USDT invested</p>
-				<p>{userData? Number(userData?.totalDeposit)/decimal: 0} USDT</p>
+				{/* <p>{userData? Number(userData?.totalDeposit)/decimal: 0} USDT</p>/ */}
+				{/* <p>{userData? Number(userData?.totalDeposit)/decimal: 0} USDT</p> */}
 			  </div>
 			  <div className="flex flex-col">
 				<p className="text-left">Your Beans</p>
